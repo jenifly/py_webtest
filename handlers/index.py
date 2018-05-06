@@ -17,6 +17,6 @@ class IndexHandler(tornado.web.RequestHandler):
             if db_pwd == password:
                 self.write("welcome you: " + username)
             else:
-                self.write("your password was not right.")
+                self.write("your password was not right.sss")
         else:
             self.write("There is no thi user.")
