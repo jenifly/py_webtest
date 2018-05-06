@@ -1,6 +1,7 @@
 #!/usr/bin/env Python
 # coding=utf-8
 
+import json
 import tornado.web
 import methods.readdb as mrd
 
@@ -23,4 +24,9 @@ class BaseHandler(tornado.web.RequestHandler):
 
 class testHandler(tornado.web.RequestHandler): 
    def get(self, story_id): 
-       self.write("xiaorui.cc niubi'id is" + story_id) 
+        story_id = int(story_id)
+        infos = mrd.show_table(table="users")
+        if len(infos) > story_id:
+            self.write(infos[story_id][1])
+        else:
+            self.write("fail")
