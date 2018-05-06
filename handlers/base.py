@@ -4,7 +4,7 @@
 import tornado.web
 import methods.readdb as mrd
 
-class IndexHandler(tornado.web.RequestHandler):
+class BaseHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
     
@@ -20,3 +20,7 @@ class IndexHandler(tornado.web.RequestHandler):
                 self.write("your password was not right.sss")
         else:
             self.write("There is no thi user.")
+
+class testHandler(tornado.web.RequestHandler): 
+   def get(self, story_id): 
+       self.write("xiaorui.cc niubi'id is" + story_id) 

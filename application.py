@@ -1,17 +1,19 @@
-#!/usr/bin/env Python
 # coding=utf-8
+# author: jenifly
 
 from url import url
 
 import tornado.web
 import os
+from methods.chatHome import ChatHome
 
-settings = dict(
-    template_path = os.path.join(os.path.dirname(__file__), "templates"),
-    static_path = os.path.join(os.path.dirname(__file__), "statics")
-    )
+class Application(tornado.web.Application):
+    def __init__(self):
+        self.chathome = ChatHome()
 
-application = tornado.web.Application(
-    handlers = url,
-    **settings
-    )
+        settings = dict(
+            template_path = os.path.join(os.path.dirname(__file__), "templates"),
+            static_path = os.path.join(os.path.dirname(__file__), "statics")
+            )
+            
+        tornado.web.Application.__init__(self, handlers = url, **settings)
