@@ -7,7 +7,7 @@ import tornado.web
 import os
 
 settings = dict(
-    template_path = os.path.join(os.path.dirname(__file__), "templates"),
+    views_path = os.path.join(os.path.dirname(__file__), "views"),
     static_path = os.path.join(os.path.dirname(__file__), "statics")
     )
 
